@@ -12,6 +12,7 @@
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://belajar-laravel-nine.vercel.app",
+        "APP_KEY": "base64:vBMn8l4NimIKJhi6Bd2CWV9TBAkIgYbrSmfYABRadX8=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
