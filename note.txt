@@ -1,0 +1,74 @@
+Add setting deploy project laravel in Vercel from publish to github:
+
+Step :
+
+1. Create Folder api in Folder Project.
+2. Create index.php file in Folder api and add code :
+
+```php
+    <?php
+
+    require __DIR__ . "/../public/index.php";'
+```
+
+3. Create .vercelignore file in Folder Project and add code :
+
+```plain text
+    /vendor
+```
+
+4. Create vercel.json file in Folder Project and add code 
+
+```json
+{
+    "version": 2,
+      "framework": null,
+    "functions": {
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+    },
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+    }],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://belajar-laravel-nine.vercel.app",
+        "APP_KEY": "base64:vBMn8l4NimIKJhi6Bd2CWV9TBAkIgYbrSmfYABRadX8=",
+
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie"
+    },
+    "outputDirectory": "public"
+}
+```
+
+5. Redeploy project again in vercel.
+
+Attention :
+
+- Don't forget add APP_KEY in vercel.json file from env project laravel. 
+    -- For Example
+```
+"APP_KEY": "base64:vBMn8l4NimIKJhi6Bd2CWV9TBAkIgYbrSmfYABRadX8=",
+```
+
+- Replace APP_URL in vercel.json following build domains in Vercel.
+    -- For Example
+```
+"APP_URL": "https://belajar-laravel-nine.vercel.app",
+```
+
+- Add code outputDirectory in vercel.json file.
+    -- For Example
+```
+"outputDirectory": "public"
+```
