@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -76,6 +76,21 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => 'prefer',
+        ],
+
+        'pgsql_non_pooling' => [
+            'driver' => 'pgsql',
+            'url' => env('POSTGRES_URL_NON_POOLING'),
+            'host' => env('POSTGRES_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('POSTGRES_DATABASE', 'forge'),
+            'username' => env('POSTGRES_USER', 'forge'),
+            'password' => env('POSTGRES_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'require',
         ],
 
         'sqlsrv' => [
